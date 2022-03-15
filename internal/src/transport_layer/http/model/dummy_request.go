@@ -8,7 +8,7 @@ import (
 
 type DummyRequest struct {
 	Id          *string `query:"id"`
-	Description *string `query:"description"`
+	Description *string `query:"description" validate:"required"`
 	Limit       int     `query:"limit"`
 	Offset      int     `query:"offset"`
 }

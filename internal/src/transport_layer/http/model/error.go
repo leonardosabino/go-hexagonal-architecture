@@ -1,6 +1,8 @@
 package model
 
 import (
+	"errors"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -48,8 +50,8 @@ func NewError(statusCode int, message string) *Error {
 
 type logFunc func(*errorx.Error)
 
-func ResponseError(context echo.Context, errx error) error {
-	// logFunc(errx)
-	// errorResponse := ErrorHandlerResponse(errx)
-	return errx
+func ResponseError(context echo.Context, errx *errorx.Error) error {
+	fmt.Printf("unwrapped error: %v \n", errors.Unwrap(errx))
+	errorResponse := ErrorHandlerResponse(errx)
+	return context.JSON(errorResponse.StatusCode, errorResponse)
 }

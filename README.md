@@ -2,10 +2,6 @@
 
 This service is a template for hexagonal architecture in GO.
 
-## Architecture 
-The project is built as follows:
-
-
 ## Folders Structure
 
 This repository contains three main folders: `cmd`, `build` and `internal`.
@@ -33,7 +29,7 @@ The binary executable file will be generated with the name `main` at root folder
 
 At main folder you can run:
 ```bash
-docker-compose -f build/package/docker/localstack/docker-compose-local.yml up -d
+docker-compose -f docker/docker-compose.yml up -d
 ```
 
 ## Testing
